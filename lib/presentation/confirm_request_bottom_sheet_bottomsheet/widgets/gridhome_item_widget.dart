@@ -1,10 +1,16 @@
+import '../controller/confirm_request_bottom_sheet_controller.dart';
+import '../models/gridhome_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class GridhomeItemWidget extends StatelessWidget {
-  GridhomeItemWidget();
+  GridhomeItemWidget(this.gridhomeItemModelObj);
+
+  GridhomeItemModel gridhomeItemModelObj;
+
+  var controller = Get.find<ConfirmRequestBottomSheetController>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,23 +43,27 @@ class GridhomeItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  "Home Closed",
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManropeMedium12Bluegray500.copyWith(
-                    letterSpacing: getHorizontalSize(
-                      0.4,
+                Obx(
+                  () => Text(
+                    gridhomeItemModelObj.homeclosedTxt.value,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManropeMedium12Bluegray500.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.4,
+                      ),
                     ),
                   ),
                 ),
-                Text(
-                  "25",
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManropeExtraBold14Gray900.copyWith(
-                    letterSpacing: getHorizontalSize(
-                      0.2,
+                Obx(
+                  () => Text(
+                    gridhomeItemModelObj.twentyFiveTxt.value,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManropeExtraBold14Gray900.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.2,
+                      ),
                     ),
                   ),
                 ),

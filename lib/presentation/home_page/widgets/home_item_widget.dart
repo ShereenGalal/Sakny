@@ -1,10 +1,16 @@
+import '../controller/home_controller.dart';
+import '../models/home_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class HomeItemWidget extends StatelessWidget {
-  HomeItemWidget({this.onTapImgImg});
+  HomeItemWidget(this.homeItemModelObj, {this.onTapImgImg});
+
+  HomeItemModel homeItemModelObj;
+
+  var controller = Get.find<HomeController>();
 
   VoidCallback? onTapImgImg;
 
@@ -81,7 +87,7 @@ class HomeItemWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "Golden Meadows",
+                                "lbl_golden_meadows".tr,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtManropeExtraBold18.copyWith(
@@ -113,7 +119,7 @@ class HomeItemWidget extends StatelessWidget {
                                         left: 4,
                                       ),
                                       child: Text(
-                                        "St. Celina, Delaware 10299",
+                                        "msg_st_celina_del2".tr,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
                                         style: AppStyle.txtManrope12.copyWith(
@@ -138,7 +144,7 @@ class HomeItemWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "\$500",
+                                "lbl_500".tr,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtManropeExtraBold18Blue500
@@ -153,7 +159,7 @@ class HomeItemWidget extends StatelessWidget {
                                   top: 9,
                                 ),
                                 child: Text(
-                                  "per month",
+                                  "lbl_per_month".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtManrope12.copyWith(

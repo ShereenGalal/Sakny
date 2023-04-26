@@ -1,9 +1,15 @@
+import '../controller/faqs_get_help_controller.dart';
+import '../models/questions_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class QuestionsItemWidget extends StatelessWidget {
-  QuestionsItemWidget();
+  QuestionsItemWidget(this.questionsItemModelObj);
+
+  QuestionsItemModel questionsItemModelObj;
+
+  var controller = Get.find<FaqsGetHelpController>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +23,15 @@ class QuestionsItemWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "How does Relax work?",
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManropeBold14.copyWith(
-                    letterSpacing: getHorizontalSize(
-                      0.2,
+                Obx(
+                  () => Text(
+                    questionsItemModelObj.howdoesrelaxworOneTxt.value,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManropeBold14.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.2,
+                      ),
                     ),
                   ),
                 ),
@@ -36,28 +44,43 @@ class QuestionsItemWidget extends StatelessWidget {
               margin: getMargin(
                 top: 13,
               ),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Laoreet nulla lorem eget praesent arcu. Nam tellus faucibus blandit dis est ultrices pretium.\nDui faucibus malesuada viverra suspendisse at dictumst aenean eget dolor. Orci ornare morbi ut nibh ultricies at lobortis.",
-                maxLines: null,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManrope12Gray9001.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              child: Obx(
+                () => Text(
+                  questionsItemModelObj.descriptionTxt.value,
+                  maxLines: null,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManrope12Gray9001.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),
             ),
           ],
         ),
-        trailing: CustomImageView(
-          svgPath: ImageConstant.imgArrowupBlueGray500,
-          height: getSize(
-            20,
-          ),
-          width: getSize(
-            20,
-          ),
-        ),
+        trailing: questionsItemModelObj.isSelected.value
+            ? CustomImageView(
+                svgPath: ImageConstant.imgArrowupBlueGray500,
+                height: getSize(
+                  20,
+                ),
+                width: getSize(
+                  20,
+                ),
+              )
+            : CustomImageView(
+                svgPath: ImageConstant.imgArrowdownBlueGray50020x20,
+                height: getSize(
+                  20,
+                ),
+                width: getSize(
+                  20,
+                ),
+                margin: getMargin(
+                  bottom: 21,
+                ),
+              ),
         children: [
           Padding(
             padding: getPadding(
@@ -79,7 +102,9 @@ class QuestionsItemWidget extends StatelessWidget {
             ),
           ),
         ],
-        onExpansionChanged: (value) {},
+        onExpansionChanged: (value) {
+          questionsItemModelObj.isSelected.value = value;
+        },
       ),
     );
   }

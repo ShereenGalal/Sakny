@@ -1,9 +1,15 @@
+import '../controller/pick_date_controller.dart';
+import '../models/time1_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class Time1ItemWidget extends StatelessWidget {
-  Time1ItemWidget();
+  Time1ItemWidget(this.time1ItemModelObj);
+
+  Time1ItemModel time1ItemModelObj;
+
+  var controller = Get.find<PickDateController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +32,13 @@ class Time1ItemWidget extends StatelessWidget {
           decoration: AppDecoration.txtOutlineGray300.copyWith(
             borderRadius: BorderRadiusStyle.txtRoundedBorder8,
           ),
-          child: Text(
-            "9:00 AM",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtManropeSemiBold14Gray900,
+          child: Obx(
+            () => Text(
+              time1ItemModelObj.timeTxt.value,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: AppStyle.txtManropeSemiBold14Gray900,
+            ),
           ),
         ),
       ),

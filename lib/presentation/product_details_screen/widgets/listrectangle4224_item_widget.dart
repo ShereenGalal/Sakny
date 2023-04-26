@@ -1,9 +1,15 @@
+import '../controller/product_details_controller.dart';
+import '../models/listrectangle4224_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class Listrectangle4224ItemWidget extends StatelessWidget {
-  Listrectangle4224ItemWidget();
+  Listrectangle4224ItemWidget(this.listrectangle4224ItemModelObj);
+
+  Listrectangle4224ItemModel listrectangle4224ItemModelObj;
+
+  var controller = Get.find<ProductDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +47,15 @@ class Listrectangle4224ItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "The New School At South Shore",
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.left,
-                    style: AppStyle.txtManropeBold12.copyWith(
-                      letterSpacing: getHorizontalSize(
-                        0.4,
+                  Obx(
+                    () => Text(
+                      listrectangle4224ItemModelObj.thenewschoolatTxt.value,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
+                      style: AppStyle.txtManropeBold12.copyWith(
+                        letterSpacing: getHorizontalSize(
+                          0.4,
+                        ),
                       ),
                     ),
                   ),
@@ -55,13 +63,15 @@ class Listrectangle4224ItemWidget extends StatelessWidget {
                     padding: getPadding(
                       top: 5,
                     ),
-                    child: Text(
-                      "Public, Prek-8 - 583 students - 0.4 mi",
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.left,
-                      style: AppStyle.txtManrope12Gray900.copyWith(
-                        letterSpacing: getHorizontalSize(
-                          0.4,
+                    child: Obx(
+                      () => Text(
+                        listrectangle4224ItemModelObj.publicprekEightTxt.value,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: AppStyle.txtManrope12Gray900.copyWith(
+                          letterSpacing: getHorizontalSize(
+                            0.4,
+                          ),
                         ),
                       ),
                     ),
@@ -134,13 +144,16 @@ class Listrectangle4224ItemWidget extends StatelessWidget {
                             left: 12,
                             bottom: 1,
                           ),
-                          child: Text(
-                            "12 reviews",
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.left,
-                            style: AppStyle.txtManrope10.copyWith(
-                              letterSpacing: getHorizontalSize(
-                                0.4,
+                          child: Obx(
+                            () => Text(
+                              listrectangle4224ItemModelObj
+                                  .reviewsCounterTxt.value,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: AppStyle.txtManrope10.copyWith(
+                                letterSpacing: getHorizontalSize(
+                                  0.4,
+                                ),
                               ),
                             ),
                           ),

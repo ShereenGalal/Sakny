@@ -1,9 +1,15 @@
+import '../controller/my_home_controller.dart';
+import '../models/my_home_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class MyHomeItemWidget extends StatelessWidget {
-  MyHomeItemWidget({this.onTapProperty});
+  MyHomeItemWidget(this.myHomeItemModelObj, {this.onTapProperty});
+
+  MyHomeItemModel myHomeItemModelObj;
+
+  var controller = Get.find<MyHomeController>();
 
   VoidCallback? onTapProperty;
 
@@ -51,7 +57,7 @@ class MyHomeItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Primary Apartment",
+                    "msg_primary_apartme".tr,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtManropeBold16.copyWith(
@@ -84,7 +90,7 @@ class MyHomeItemWidget extends StatelessWidget {
                             left: 4,
                           ),
                           child: Text(
-                            "3",
+                            "lbl_3".tr,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtManropeMedium14Bluegray500,
@@ -109,7 +115,7 @@ class MyHomeItemWidget extends StatelessWidget {
                             left: 4,
                           ),
                           child: Text(
-                            "2",
+                            "lbl_2".tr,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: AppStyle.txtManropeMedium14Bluegray500,
@@ -137,7 +143,7 @@ class MyHomeItemWidget extends StatelessWidget {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "1,880",
+                                  text: "lbl_1_880".tr,
                                   style: TextStyle(
                                     color: ColorConstant.blueGray500,
                                     fontSize: getFontSize(
@@ -162,7 +168,7 @@ class MyHomeItemWidget extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: "Ft",
+                                  text: "lbl_ft".tr,
                                   style: TextStyle(
                                     color: ColorConstant.blueGray500,
                                     fontSize: getFontSize(
@@ -188,7 +194,7 @@ class MyHomeItemWidget extends StatelessWidget {
                       top: 8,
                     ),
                     child: Text(
-                      "\$1,600 - \$1,800 ",
+                      "lbl_1_600_1_800".tr,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                       style: AppStyle.txtManropeExtraBold16.copyWith(

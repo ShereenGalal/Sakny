@@ -1,9 +1,15 @@
+import '../controller/add_new_property_details_controller.dart';
+import '../models/listestimateprice_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListestimatepriceItemWidget extends StatelessWidget {
-  ListestimatepriceItemWidget();
+  ListestimatepriceItemWidget(this.listestimatepriceItemModelObj);
+
+  ListestimatepriceItemModel listestimatepriceItemModelObj;
+
+  var controller = Get.find<AddNewPropertyDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +36,15 @@ class ListestimatepriceItemWidget extends StatelessWidget {
               padding: getPadding(
                 top: 1,
               ),
-              child: Text(
-                "Estimate price",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeMedium10.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              child: Obx(
+                () => Text(
+                  listestimatepriceItemModelObj.estimatepriceTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeMedium10.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),
@@ -45,13 +53,15 @@ class ListestimatepriceItemWidget extends StatelessWidget {
               padding: getPadding(
                 top: 4,
               ),
-              child: Text(
-                "\$4,200.00",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeBold14.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.2,
+              child: Obx(
+                () => Text(
+                  listestimatepriceItemModelObj.priceTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeBold14.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.2,
+                    ),
                   ),
                 ),
               ),
@@ -72,13 +82,15 @@ class ListestimatepriceItemWidget extends StatelessWidget {
               decoration: AppDecoration.txtFillRed40019.copyWith(
                 borderRadius: BorderRadiusStyle.txtRoundedBorder5,
               ),
-              child: Text(
-                "-4%",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeSemiBold10.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              child: Obx(
+                () => Text(
+                  listestimatepriceItemModelObj.group34508Txt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeSemiBold10.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),

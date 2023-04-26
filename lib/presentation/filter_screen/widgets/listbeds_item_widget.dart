@@ -1,9 +1,15 @@
+import '../controller/filter_controller.dart';
+import '../models/listbeds_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListbedsItemWidget extends StatelessWidget {
-  ListbedsItemWidget();
+  ListbedsItemWidget(this.listbedsItemModelObj);
+
+  ListbedsItemModel listbedsItemModelObj;
+
+  var controller = Get.find<FilterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +22,15 @@ class ListbedsItemWidget extends StatelessWidget {
             padding: getPadding(
               top: 1,
             ),
-            child: Text(
-              "Beds",
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: AppStyle.txtManropeMedium16.copyWith(
-                letterSpacing: getHorizontalSize(
-                  0.2,
+            child: Obx(
+              () => Text(
+                listbedsItemModelObj.bedsTxt.value,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtManropeMedium16.copyWith(
+                  letterSpacing: getHorizontalSize(
+                    0.2,
+                  ),
                 ),
               ),
             ),
@@ -42,13 +50,15 @@ class ListbedsItemWidget extends StatelessWidget {
               left: 15,
               top: 1,
             ),
-            child: Text(
-              "4",
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: AppStyle.txtManropeExtraBold16Gray900.copyWith(
-                letterSpacing: getHorizontalSize(
-                  0.2,
+            child: Obx(
+              () => Text(
+                listbedsItemModelObj.fourTxt.value,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtManropeExtraBold16Gray900.copyWith(
+                  letterSpacing: getHorizontalSize(
+                    0.2,
+                  ),
                 ),
               ),
             ),

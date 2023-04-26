@@ -1,10 +1,16 @@
+import '../controller/notification_controller.dart';
+import '../models/listhome_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class ListhomeItemWidget extends StatelessWidget {
-  ListhomeItemWidget();
+  ListhomeItemWidget(this.listhomeItemModelObj);
+
+  ListhomeItemModel listhomeItemModelObj;
+
+  var controller = Get.find<NotificationController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +39,15 @@ class ListhomeItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "There are good deals",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeBold14.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.2,
+              Obx(
+                () => Text(
+                  listhomeItemModelObj.therearegooddeaOneTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeBold14.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.2,
+                    ),
                   ),
                 ),
               ),
@@ -51,7 +59,7 @@ class ListhomeItemWidget extends StatelessWidget {
                   top: 4,
                 ),
                 child: Text(
-                  "Lots of great deals around New York that you should check out",
+                  "msg_lots_of_great_deals".tr,
                   maxLines: null,
                   textAlign: TextAlign.left,
                   style: AppStyle.txtManrope12Bluegray500.copyWith(
@@ -73,13 +81,15 @@ class ListhomeItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "1m ago",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManrope12.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              Obx(
+                () => Text(
+                  listhomeItemModelObj.distanceTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManrope12.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),

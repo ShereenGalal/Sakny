@@ -1,9 +1,15 @@
+import '../controller/add_new_property_meet_with_a_agent_controller.dart';
+import '../models/time_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class TimeItemWidget extends StatelessWidget {
-  TimeItemWidget();
+  TimeItemWidget(this.timeItemModelObj);
+
+  TimeItemModel timeItemModelObj;
+
+  var controller = Get.find<AddNewPropertyMeetWithAAgentController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +32,13 @@ class TimeItemWidget extends StatelessWidget {
           decoration: AppDecoration.txtOutlineGray300.copyWith(
             borderRadius: BorderRadiusStyle.txtRoundedBorder8,
           ),
-          child: Text(
-            "9:00 AM",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtManropeSemiBold14Gray900,
+          child: Obx(
+            () => Text(
+              timeItemModelObj.timeTxt.value,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: AppStyle.txtManropeSemiBold14Gray900,
+            ),
           ),
         ),
       ),

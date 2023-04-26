@@ -1,3 +1,5 @@
+import '../controller/select_virtual_app_controller.dart';
+import '../models/listwhatsapp_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
@@ -5,9 +7,11 @@ import 'package:sakny/widgets/custom_text_form_field.dart';
 
 // ignore: must_be_immutable
 class ListwhatsappItemWidget extends StatelessWidget {
-  ListwhatsappItemWidget();
+  ListwhatsappItemWidget(this.listwhatsappItemModelObj);
 
-  TextEditingController streetaddressController = TextEditingController();
+  ListwhatsappItemModel listwhatsappItemModelObj;
+
+  var controller = Get.find<SelectVirtualAppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +53,15 @@ class ListwhatsappItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
-                        "Whatsapp",
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.left,
-                        style: AppStyle.txtManropeExtraBold16Gray900.copyWith(
-                          letterSpacing: getHorizontalSize(
-                            0.2,
+                      Obx(
+                        () => Text(
+                          listwhatsappItemModelObj.whatsappOneTxt.value,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: AppStyle.txtManropeExtraBold16Gray900.copyWith(
+                            letterSpacing: getHorizontalSize(
+                              0.2,
+                            ),
                           ),
                         ),
                       ),
@@ -64,7 +70,7 @@ class ListwhatsappItemWidget extends StatelessWidget {
                           top: 4,
                         ),
                         child: Text(
-                          "Recommend",
+                          "lbl_recommend".tr,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style:
@@ -97,8 +103,8 @@ class ListwhatsappItemWidget extends StatelessWidget {
             ),
             CustomTextFormField(
               focusNode: FocusNode(),
-              controller: streetaddressController,
-              hintText: "Email",
+              controller: listwhatsappItemModelObj.streetaddressController,
+              hintText: "lbl_email".tr,
               margin: getMargin(
                 top: 3,
               ),
