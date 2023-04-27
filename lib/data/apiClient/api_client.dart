@@ -1,8 +1,6 @@
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/core/utils/progress_dialog_utils.dart';
-import 'package:sakny/data/models/login/post_login_resp.dart';
 import 'package:sakny/data/models/me/get_me_resp.dart';
-import 'package:sakny/data/models/register/post_register_resp.dart';
 
 class ApiClient extends GetConnect {
   var url = "https://nodedemo.dhiwise.co";
@@ -40,52 +38,6 @@ class ApiClient extends GetConnect {
       } else {
         throw response.body != null
             ? GetMeResp.fromJson(response.body)
-            : 'Something Went Wrong!';
-      }
-    } catch (error, stackTrace) {
-      ProgressDialogUtils.hideProgressDialog();
-      Logger.log(error, stackTrace: stackTrace);
-      rethrow;
-    }
-  }
-
-  Future<PostLoginResp> createLogin(
-      {Map<String, String> headers = const {},
-      Map requestData = const {}}) async {
-    ProgressDialogUtils.showProgressDialog();
-    try {
-      await isNetworkConnected();
-      Response response = await httpClient.post('$url/device/auth/login',
-          headers: headers, body: requestData);
-      ProgressDialogUtils.hideProgressDialog();
-      if (_isSuccessCall(response)) {
-        return PostLoginResp.fromJson(response.body);
-      } else {
-        throw response.body != null
-            ? PostLoginResp.fromJson(response.body)
-            : 'Something Went Wrong!';
-      }
-    } catch (error, stackTrace) {
-      ProgressDialogUtils.hideProgressDialog();
-      Logger.log(error, stackTrace: stackTrace);
-      rethrow;
-    }
-  }
-
-  Future<PostRegisterResp> createRegister(
-      {Map<String, String> headers = const {},
-      Map requestData = const {}}) async {
-    ProgressDialogUtils.showProgressDialog();
-    try {
-      await isNetworkConnected();
-      Response response = await httpClient.post('$url/device/auth/register',
-          headers: headers, body: requestData);
-      ProgressDialogUtils.hideProgressDialog();
-      if (_isSuccessCall(response)) {
-        return PostRegisterResp.fromJson(response.body);
-      } else {
-        throw response.body != null
-            ? PostRegisterResp.fromJson(response.body)
             : 'Something Went Wrong!';
       }
     } catch (error, stackTrace) {
