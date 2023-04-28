@@ -1,9 +1,15 @@
+import '../controller/product_details_controller.dart';
+import '../models/listfive_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListfiveItemWidget extends StatelessWidget {
-  ListfiveItemWidget();
+  ListfiveItemWidget(this.listfiveItemModelObj);
+
+  ListfiveItemModel listfiveItemModelObj;
+
+  var controller = Get.find<ProductDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +17,15 @@ class ListfiveItemWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "5",
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.left,
-          style: AppStyle.txtManropeBold14.copyWith(
-            letterSpacing: getHorizontalSize(
-              0.2,
+        Obx(
+          () => Text(
+            listfiveItemModelObj.fiveTxt.value,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.left,
+            style: AppStyle.txtManropeBold14.copyWith(
+              letterSpacing: getHorizontalSize(
+                0.2,
+              ),
             ),
           ),
         ),
@@ -65,11 +73,13 @@ class ListfiveItemWidget extends StatelessWidget {
             left: 12,
             bottom: 1,
           ),
-          child: Text(
-            "60%",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtReadexProRegular14,
+          child: Obx(
+            () => Text(
+              listfiveItemModelObj.sixtyTxt.value,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: AppStyle.txtReadexProRegular14,
+            ),
           ),
         ),
       ],

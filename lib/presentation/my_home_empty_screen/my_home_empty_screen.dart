@@ -1,3 +1,4 @@
+import 'controller/my_home_empty_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/presentation/home_page/home_page.dart';
@@ -8,9 +9,7 @@ import 'package:sakny/presentation/profile_page/profile_page.dart';
 import 'package:sakny/widgets/custom_bottom_bar.dart';
 import 'package:sakny/widgets/custom_button.dart';
 
-class MyHomeEmptyScreen extends StatelessWidget {
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
-
+class MyHomeEmptyScreen extends GetWidget<MyHomeEmptyController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,7 +41,7 @@ class MyHomeEmptyScreen extends StatelessWidget {
                   top: 63,
                 ),
                 child: Text(
-                  "Ready to sell your home?",
+                  "msg_ready_to_sell_y".tr,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.left,
                   style: AppStyle.txtManropeExtraBold20.copyWith(
@@ -60,7 +59,7 @@ class MyHomeEmptyScreen extends StatelessWidget {
                   top: 6,
                 ),
                 child: Text(
-                  "Relax is making it simpler to sell your home and move forward.",
+                  "msg_relax_is_making".tr,
                   maxLines: null,
                   textAlign: TextAlign.center,
                   style: AppStyle.txtManrope16Bluegray500.copyWith(
@@ -77,7 +76,7 @@ class MyHomeEmptyScreen extends StatelessWidget {
                 width: getHorizontalSize(
                   155,
                 ),
-                text: "Add property",
+                text: "lbl_add_property".tr,
                 margin: getMargin(
                   top: 25,
                 ),
@@ -90,8 +89,7 @@ class MyHomeEmptyScreen extends StatelessWidget {
         ),
         bottomNavigationBar: CustomBottomBar(
           onChanged: (BottomBarEnum type) {
-            Navigator.pushNamed(
-                navigatorKey.currentContext!, getCurrentRoute(type));
+            Get.toNamed(getCurrentRoute(type), id: 1);
           },
         ),
       ),

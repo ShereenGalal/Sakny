@@ -1,10 +1,16 @@
+import '../controller/product_details_controller.dart';
+import '../models/sliderarrowleft_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class SliderarrowleftItemWidget extends StatelessWidget {
-  SliderarrowleftItemWidget();
+  SliderarrowleftItemWidget(this.sliderarrowleftItemModelObj);
+
+  SliderarrowleftItemModel sliderarrowleftItemModelObj;
+
+  var controller = Get.find<ProductDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +80,7 @@ class SliderarrowleftItemWidget extends StatelessWidget {
                         top: 190,
                       ),
                       child: Text(
-                        "Primary Apartment",
+                        "msg_primary_apartme".tr,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
                         style: AppStyle.txtManropeExtraBold24WhiteA700,
@@ -85,7 +91,7 @@ class SliderarrowleftItemWidget extends StatelessWidget {
                         top: 1,
                       ),
                       child: Text(
-                        "701 Ocean Avenue, Unit 103, Santa Monica",
+                        "msg_701_ocean_avenue".tr,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.left,
                         style: AppStyle.txtManropeMedium14Gray300,

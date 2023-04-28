@@ -1,10 +1,16 @@
+import '../controller/filter_controller.dart';
+import '../models/listimg_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class ListimgItemWidget extends StatelessWidget {
-  ListimgItemWidget();
+  ListimgItemWidget(this.listimgItemModelObj);
+
+  ListimgItemModel listimgItemModelObj;
+
+  var controller = Get.find<FilterController>();
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +82,7 @@ class ListimgItemWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "Mighty Cinco Family",
+                                "msg_mighty_cinco_fa".tr,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtManropeExtraBold18.copyWith(
@@ -108,7 +114,7 @@ class ListimgItemWidget extends StatelessWidget {
                                         left: 4,
                                       ),
                                       child: Text(
-                                        "Jakarta, Indonesia",
+                                        "msg_jakarta_indone".tr,
                                         overflow: TextOverflow.ellipsis,
                                         textAlign: TextAlign.left,
                                         style: AppStyle.txtManrope12Gray900
@@ -134,7 +140,7 @@ class ListimgItemWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "\$436",
+                                "lbl_436".tr,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.left,
                                 style: AppStyle.txtManropeExtraBold18Blue500
@@ -149,7 +155,7 @@ class ListimgItemWidget extends StatelessWidget {
                                   top: 9,
                                 ),
                                 child: Text(
-                                  "per month",
+                                  "lbl_per_month".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtManrope12.copyWith(

@@ -1,9 +1,15 @@
+import '../controller/pick_date_controller.dart';
+import '../models/dates1_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class Dates1ItemWidget extends StatelessWidget {
-  Dates1ItemWidget();
+  Dates1ItemWidget(this.dates1ItemModelObj);
+
+  Dates1ItemModel dates1ItemModelObj;
+
+  var controller = Get.find<PickDateController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +34,15 @@ class Dates1ItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "MONDAY",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeMedium10.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              Obx(
+                () => Text(
+                  dates1ItemModelObj.weekdayTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeMedium10.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),
@@ -43,11 +51,13 @@ class Dates1ItemWidget extends StatelessWidget {
                   left: 11,
                   top: 4,
                 ),
-                child: Text(
-                  "11",
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManropeSemiBold24,
+                child: Obx(
+                  () => Text(
+                    dates1ItemModelObj.dateTxt.value,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManropeSemiBold24,
+                  ),
                 ),
               ),
               Align(
@@ -57,7 +67,7 @@ class Dates1ItemWidget extends StatelessWidget {
                     top: 3,
                   ),
                   child: Text(
-                    "JUL",
+                    "lbl_jul".tr,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.left,
                     style: AppStyle.txtManropeMedium12Bluegray500.copyWith(

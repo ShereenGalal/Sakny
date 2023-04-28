@@ -12,9 +12,9 @@ class AppbarDropdown extends StatelessWidget {
 
   String? hintText;
 
-  List<String> items;
+  List<SelectionPopupModel> items;
 
-  Function(String) onTap;
+  Function(SelectionPopupModel) onTap;
 
   EdgeInsetsGeometry? margin;
 
@@ -35,7 +35,7 @@ class AppbarDropdown extends StatelessWidget {
             svgPath: ImageConstant.imgArrowdown,
           ),
         ),
-        hintText: "St. Celina, Delaware",
+        hintText: "msg_st_celina_del".tr,
         variant: DropDownVariant.None,
         fontStyle: DropDownFontStyle.ManropeSemiBold14Gray900,
         items: items,

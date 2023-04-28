@@ -1,9 +1,15 @@
+import '../controller/product_details_controller.dart';
+import '../models/listdate_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class ListdateItemWidget extends StatelessWidget {
-  ListdateItemWidget();
+  ListdateItemWidget(this.listdateItemModelObj);
+
+  ListdateItemModel listdateItemModelObj;
+
+  var controller = Get.find<ProductDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -14,23 +20,27 @@ class ListdateItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              "28/12/2021",
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: AppStyle.txtManropeMedium14Bluegray500,
+            Obx(
+              () => Text(
+                listdateItemModelObj.dateTxt.value,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtManropeMedium14Bluegray500,
+              ),
             ),
             Padding(
               padding: getPadding(
                 top: 4,
               ),
-              child: Text(
-                "Listed for Sale",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeSemiBold16.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.2,
+              child: Obx(
+                () => Text(
+                  listdateItemModelObj.listedforsaleTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeSemiBold16.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.2,
+                    ),
                   ),
                 ),
               ),
@@ -40,7 +50,7 @@ class ListdateItemWidget extends StatelessWidget {
                 top: 5,
               ),
               child: Text(
-                "Relax",
+                "lbl_relax".tr,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
                 style: AppStyle.txtManropeMedium14Blue500,
@@ -54,13 +64,15 @@ class ListdateItemWidget extends StatelessWidget {
             top: 24,
             bottom: 25,
           ),
-          child: Text(
-            "\$2,400",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.left,
-            style: AppStyle.txtManropeSemiBold16.copyWith(
-              letterSpacing: getHorizontalSize(
-                0.2,
+          child: Obx(
+            () => Text(
+              listdateItemModelObj.priceTxt.value,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.left,
+              style: AppStyle.txtManropeSemiBold16.copyWith(
+                letterSpacing: getHorizontalSize(
+                  0.2,
+                ),
               ),
             ),
           ),

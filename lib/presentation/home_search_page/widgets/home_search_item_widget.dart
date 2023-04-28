@@ -1,9 +1,15 @@
+import '../controller/home_search_controller.dart';
+import '../models/home_search_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class HomeSearchItemWidget extends StatelessWidget {
-  HomeSearchItemWidget({this.onTapSearch});
+  HomeSearchItemWidget(this.homeSearchItemModelObj, {this.onTapSearch});
+
+  HomeSearchItemModel homeSearchItemModelObj;
+
+  var controller = Get.find<HomeSearchController>();
 
   VoidCallback? onTapSearch;
 
@@ -41,13 +47,15 @@ class HomeSearchItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Mighty Cinco Family",
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.left,
-                    style: AppStyle.txtManropeBold14.copyWith(
-                      letterSpacing: getHorizontalSize(
-                        0.2,
+                  Obx(
+                    () => Text(
+                      homeSearchItemModelObj.mightycincofamiOneTxt.value,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
+                      style: AppStyle.txtManropeBold14.copyWith(
+                        letterSpacing: getHorizontalSize(
+                          0.2,
+                        ),
                       ),
                     ),
                   ),
@@ -59,7 +67,7 @@ class HomeSearchItemWidget extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "360",
+                            text: "lbl_360".tr,
                             style: TextStyle(
                               color: ColorConstant.blue500,
                               fontSize: getFontSize(
@@ -73,7 +81,7 @@ class HomeSearchItemWidget extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: " S",
+                            text: "lbl_s".tr,
                             style: TextStyle(
                               color: ColorConstant.blueGray500,
                               fontSize: getFontSize(
@@ -84,7 +92,7 @@ class HomeSearchItemWidget extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: "tillwater Rd Troutman",
+                            text: "msg_tillwater_rd_troutman".tr,
                             style: TextStyle(
                               color: ColorConstant.blueGray500,
                               fontSize: getFontSize(

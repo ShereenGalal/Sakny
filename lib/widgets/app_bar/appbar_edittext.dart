@@ -22,7 +22,7 @@ class AppbarEdittext extends StatelessWidget {
         ),
         focusNode: FocusNode(),
         controller: controller,
-        hintText: "360 Stillwater Rd...",
+        hintText: "msg_360_stillwater".tr,
         variant: TextFormFieldVariant.OutlineBluegray40014,
         shape: TextFormFieldShape.CircleBorder24,
         padding: TextFormFieldPadding.PaddingT13,

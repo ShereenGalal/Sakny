@@ -69,7 +69,7 @@ class CustomPhoneNumber extends StatelessWidget {
               ),
               focusNode: FocusNode(),
               controller: controller,
-              hintText: "Phone number",
+              hintText: "lbl_phone_number".tr,
               margin: getMargin(
                 left: 2,
                 right: 20,

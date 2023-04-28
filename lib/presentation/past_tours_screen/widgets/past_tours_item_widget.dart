@@ -1,9 +1,15 @@
+import '../controller/past_tours_controller.dart';
+import '../models/past_tours_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class PastToursItemWidget extends StatelessWidget {
-  PastToursItemWidget();
+  PastToursItemWidget(this.pastToursItemModelObj);
+
+  PastToursItemModel pastToursItemModelObj;
+
+  var controller = Get.find<PastToursController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class PastToursItemWidget extends StatelessWidget {
                 top: 3,
               ),
               child: Text(
-                "Mon, Apr 4, 10:00 AM to 10:45 AM",
+                "msg_mon_apr_4_10".tr,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
                 style: AppStyle.txtManropeSemiBold14Gray900,
@@ -56,13 +62,15 @@ class PastToursItemWidget extends StatelessWidget {
                     padding: getPadding(
                       left: 4,
                     ),
-                    child: Text(
-                      "Canceled",
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.left,
-                      style: AppStyle.txtManropeSemiBold12Red400.copyWith(
-                        letterSpacing: getHorizontalSize(
-                          0.4,
+                    child: Obx(
+                      () => Text(
+                        pastToursItemModelObj.canceledTxt.value,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                        style: AppStyle.txtManropeSemiBold12Red400.copyWith(
+                          letterSpacing: getHorizontalSize(
+                            0.4,
+                          ),
                         ),
                       ),
                     ),
@@ -79,7 +87,7 @@ class PastToursItemWidget extends StatelessWidget {
                 right: 30,
               ),
               child: Text(
-                "You can request another tour anytime, if you have questions please contact your agent",
+                "msg_you_can_request".tr,
                 maxLines: null,
                 textAlign: TextAlign.left,
                 style: AppStyle.txtManropeMedium12Gray9001.copyWith(
@@ -122,7 +130,7 @@ class PastToursItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Golden Meadows",
+                          "lbl_golden_meadows".tr,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style: AppStyle.txtManropeExtraBold16Gray900.copyWith(
@@ -154,7 +162,7 @@ class PastToursItemWidget extends StatelessWidget {
                                   left: 4,
                                 ),
                                 child: Text(
-                                  "St. Celina, Delaware 10299",
+                                  "msg_st_celina_del2".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtManrope12.copyWith(
@@ -179,7 +187,7 @@ class PastToursItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Price",
+                          "lbl_price".tr,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.left,
                           style: AppStyle.txtManrope12.copyWith(
@@ -193,7 +201,7 @@ class PastToursItemWidget extends StatelessWidget {
                             top: 7,
                           ),
                           child: Text(
-                            "\$436",
+                            "lbl_436".tr,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style:

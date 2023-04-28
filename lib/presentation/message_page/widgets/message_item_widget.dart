@@ -1,9 +1,15 @@
+import '../controller/message_controller.dart';
+import '../models/message_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 
 // ignore: must_be_immutable
 class MessageItemWidget extends StatelessWidget {
-  MessageItemWidget({this.onTaptf});
+  MessageItemWidget(this.messageItemModelObj, {this.onTaptf});
+
+  MessageItemModel messageItemModelObj;
+
+  var controller = Get.find<MessageController>();
 
   VoidCallback? onTaptf;
 
@@ -82,13 +88,15 @@ class MessageItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  "Wade Warren",
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManropeBold16.copyWith(
-                    letterSpacing: getHorizontalSize(
-                      0.2,
+                Obx(
+                  () => Text(
+                    messageItemModelObj.wadewarrenTxt.value,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManropeBold16.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.2,
+                      ),
                     ),
                   ),
                 ),
@@ -96,11 +104,13 @@ class MessageItemWidget extends StatelessWidget {
                   padding: getPadding(
                     top: 9,
                   ),
-                  child: Text(
-                    "Oh hello Willam...",
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.left,
-                    style: AppStyle.txtManropeMedium14Bluegray500,
+                  child: Obx(
+                    () => Text(
+                      messageItemModelObj.messageTxt.value,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
+                      style: AppStyle.txtManropeMedium14Bluegray500,
+                    ),
                   ),
                 ),
               ],
@@ -112,11 +122,13 @@ class MessageItemWidget extends StatelessWidget {
               top: 1,
               bottom: 30,
             ),
-            child: Text(
-              "23:15",
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.left,
-              style: AppStyle.txtManropeRegular14,
+            child: Obx(
+              () => Text(
+                messageItemModelObj.timeTxt.value,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.left,
+                style: AppStyle.txtManropeRegular14,
+              ),
             ),
           ),
         ],

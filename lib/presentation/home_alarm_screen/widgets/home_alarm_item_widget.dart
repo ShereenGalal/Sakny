@@ -1,10 +1,16 @@
+import '../controller/home_alarm_controller.dart';
+import '../models/home_alarm_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class HomeAlarmItemWidget extends StatelessWidget {
-  HomeAlarmItemWidget({this.onTapHouse});
+  HomeAlarmItemWidget(this.homeAlarmItemModelObj, {this.onTapHouse});
+
+  HomeAlarmItemModel homeAlarmItemModelObj;
+
+  var controller = Get.find<HomeAlarmController>();
 
   VoidCallback? onTapHouse;
 
@@ -82,7 +88,7 @@ class HomeAlarmItemWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Golden Meadows",
+                                  "lbl_golden_meadows".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style:
@@ -115,7 +121,7 @@ class HomeAlarmItemWidget extends StatelessWidget {
                                           left: 4,
                                         ),
                                         child: Text(
-                                          "St. Celina, Delaware 10299",
+                                          "msg_st_celina_del2".tr,
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
                                           style: AppStyle.txtManrope12.copyWith(
@@ -140,7 +146,7 @@ class HomeAlarmItemWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "\$500",
+                                  "lbl_500".tr,
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.left,
                                   style: AppStyle.txtManropeExtraBold18Blue500
@@ -155,7 +161,7 @@ class HomeAlarmItemWidget extends StatelessWidget {
                                     top: 9,
                                   ),
                                   child: Text(
-                                    "per month",
+                                    "lbl_per_month".tr,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.left,
                                     style: AppStyle.txtManrope12.copyWith(

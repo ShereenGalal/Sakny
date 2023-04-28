@@ -1,10 +1,16 @@
+import '../controller/notification_controller.dart';
+import '../models/listchartline_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sakny/core/app_export.dart';
 import 'package:sakny/widgets/custom_icon_button.dart';
 
 // ignore: must_be_immutable
 class ListchartlineItemWidget extends StatelessWidget {
-  ListchartlineItemWidget();
+  ListchartlineItemWidget(this.listchartlineItemModelObj);
+
+  ListchartlineItemModel listchartlineItemModelObj;
+
+  var controller = Get.find<NotificationController>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +39,15 @@ class ListchartlineItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "The house with the best...",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManropeBold14.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.2,
+              Obx(
+                () => Text(
+                  listchartlineItemModelObj.thehousewiththeOneTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManropeBold14.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.2,
+                    ),
                   ),
                 ),
               ),
@@ -50,13 +58,15 @@ class ListchartlineItemWidget extends StatelessWidget {
                 margin: getMargin(
                   top: 5,
                 ),
-                child: Text(
-                  "There are several houses currently on sale that you can check",
-                  maxLines: null,
-                  textAlign: TextAlign.left,
-                  style: AppStyle.txtManrope12Bluegray500.copyWith(
-                    letterSpacing: getHorizontalSize(
-                      0.4,
+                child: Obx(
+                  () => Text(
+                    listchartlineItemModelObj.thereareseveralOneTxt.value,
+                    maxLines: null,
+                    textAlign: TextAlign.left,
+                    style: AppStyle.txtManrope12Bluegray500.copyWith(
+                      letterSpacing: getHorizontalSize(
+                        0.4,
+                      ),
                     ),
                   ),
                 ),
@@ -74,13 +84,15 @@ class ListchartlineItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                "4 days",
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.left,
-                style: AppStyle.txtManrope12.copyWith(
-                  letterSpacing: getHorizontalSize(
-                    0.4,
+              Obx(
+                () => Text(
+                  listchartlineItemModelObj.durationTxt.value,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.left,
+                  style: AppStyle.txtManrope12.copyWith(
+                    letterSpacing: getHorizontalSize(
+                      0.4,
+                    ),
                   ),
                 ),
               ),
