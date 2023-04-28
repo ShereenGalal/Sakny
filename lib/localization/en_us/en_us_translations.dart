@@ -146,7 +146,7 @@ final Map<String, String> enUs = {
   "lbl_02": "0 EGP",
   "lbl_contact_agent": "Contact Agent",
   "msg_cassablanca_gro2":
-      "Gihan Ground is located in Mansoura  City which is not far from the city center. This house was made in 2012 with a minimalist and modern architecture suitable for families.",
+      "Jihan Ground is located in Mansoura  City which is not far from the city center. This house was made in 2012 with a minimalist and modern architecture suitable for families.",
   "msg_lots_of_great_d":
       "Lots of great deals around new york that you should check out",
   "lbl_golden_meadows": "Jihan street",
@@ -198,7 +198,7 @@ final Map<String, String> enUs = {
   "lbl_select_type": "Select type",
   "msg_popular_ameniti": "Popular Amenities",
   "msg_casablanca_ground2":
-      "Gihan Ground is located in Mansoura City which is not far from the city center. This house was made in 2012 with a minimalist and modern architecture suitable for families.",
+      "Jihan Ground is located in Mansoura City which is not far from the city center. This house was made in 2012 with a minimalist and modern architecture suitable for families.",
   "msg_select_amenitit": "Select Amenitites",
   "msg_sale_tax_hist": "Sale & Tax History",
   "lbl_list_price": "List Price",
